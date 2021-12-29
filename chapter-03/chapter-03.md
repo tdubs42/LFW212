@@ -14,6 +14,7 @@ cd http-web-server
 ## With Express.js
 
 Most popular Node.js framework; particularly good for serving html dynamically
+
 Uses an approach known as the `middleware pattern`
 ```bash
 node -e "fs.mkdirSync('express-web-server')"
@@ -70,4 +71,16 @@ app.use((err, req, res, next) => {
 > on the same objects, the principles of least surprise and seperation of concerns are violated, while also causing 
 > performance issues."
 
+## With Fastify
 
+More performant than Express.js; particularly good for RESTful JSON APIs
+
+Uses a `plugin approach`: EVERYTHING in Fastify is a plugin
+> Fastify plugins are always asynchronous (either with a callback or a returned promise) to allow for asynchronous 
+> initialization of every plugin
+```bash
+npm init fastify
+npm i
+```
+### `request == req` and `reply == res` but they have a different | separate API
+`fastify-autoload` plugin assists in automatically naming routes based on the name of their subfolders
